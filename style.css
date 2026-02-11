@@ -1,45 +1,61 @@
+/* --- ESTILOS GENERALES --- */
 body {
-  background: linear-gradient(to right, #ff9a9e, #fad0c4);
-  font-family: Arial, sans-serif;
-  margin: 0;
-  min-height: 100vh;
-  position: relative;
+    background: linear-gradient(to right, #ff9a9e, #fad0c4);
+    font-family: Arial, sans-serif;
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
+/* --- TARJETA PRINCIPAL (RESPONSIVA) --- */
 .card {
     background: white;
-    padding: 30px;
+    padding: 20px;
     border-radius: 20px;
     text-align: center;
-    width: 360px;
+    width: 100%; /* Ocupa el ancho disponible */
+    max-width: 380px; /* Pero no más de 380px */
     box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+    margin-top: 20px;
+    box-sizing: border-box;
 }
 
 h1 {
     color: #ff4d6d;
+    font-size: 1.5rem; /* Tamaño ajustable */
     margin-bottom: 5px;
 }
 
 h2 {
     color: #ff758f;
+    font-size: 1.2rem;
     margin-top: 0;
 }
 
 p {
-    font-size: 16px;
+    font-size: 15px;
+    line-height: 1.4;
 }
 
+/* --- BOTONES --- */
 .buttons {
     margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
 }
 
 button {
-    padding: 10px 22px;
+    padding: 10px 20px;
     border: none;
     border-radius: 20px;
-    margin: 10px;
-    font-size: 16px;
+    font-size: 14px;
     cursor: pointer;
+    transition: transform 0.2s;
 }
 
 button:first-child {
@@ -49,245 +65,101 @@ button:first-child {
 
 #no {
     background: #ccc;
+    position: relative; /* Para que el movimiento no rompa el layout */
 }
 
-
+/* --- CONTADOR --- */
 #contador-amor {
-  margin-top: 30px;
-  font-size: 1.2rem;
-  color: #ff4d6d;
-  text-align: center;
-  font-weight: bold;
-}
-
-
-.corazon {
-  position: fixed;
-  bottom: -30px;
-  font-size: 18px;
-  animation: flotar 6s ease-out forwards;
-  pointer-events: none;
-}
-
-@keyframes flotar {
-  from {
-    transform: translateY(0) translateX(0);
-    opacity: 1;
-  }
-  to {
-    transform: translateY(-110vh) translateX(20px);
-    opacity: 0;
-  }
-}
-
-
-
-@media (max-width: 600px) {
-  body {
-    padding: 15px;
-  }
-
-  #contador-amor {
+    margin-top: 20px;
     font-size: 1rem;
-  }
+    color: #ff4d6d;
+    font-weight: bold;
 }
 
-#musicBtn {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: #ff4d6d;
-  color: white;
-  border: none;
-  padding: 12px 18px;
-  border-radius: 30px;
-  font-size: 14px;
-  cursor: pointer;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-  z-index: 9999;
-}
-
-#musicBtn:hover {
-  background: #e63950;
-}
-
-
-
+/* --- SECCIÓN DE BOTONES EXTRAS --- */
 .love-section {
-  text-align: center;
-  margin-top: 30px;
+    text-align: center;
+    margin-top: 20px;
+    width: 100%;
 }
 
-#whyLoveBtn {
-  background: #ff6b81;
-  color: white;
-  border: none;
-  padding: 12px 22px;
-  border-radius: 25px;
-  font-size: 16px;
-  cursor: pointer;
+#whyLoveBtn, #openTrunkBtn {
+    width: 90%; /* Botones anchos en móvil */
+    max-width: 300px;
+    margin: 5px 0;
 }
 
-#loveList {
-  list-style: none;
-  padding: 0;
-  margin-top: 20px;
+#openTrunkBtn {
+    background: #4dabff;
+    color: white;
 }
 
-#loveList li {
-  margin: 10px 0;
-  opacity: 0;
-  transform: translateY(10px);
-  animation: fadeUp 0.6s forwards;
-}
-
-.hidden {
-  display: none;
-}
-
-@keyframes fadeUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-
-
+/* --- MODALES (CORREGIDOS PARA MÓVIL) --- */
 .modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.5);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 99999;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100000;
 }
-
 
 .modal-content {
-  background: white;
-  padding: 25px;
-  width: 90%;
-  max-width: 400px;
-  border-radius: 15px;
-  text-align: center;
-  position: relative;
-  animation: scaleIn 0.3s ease;
+    background: white;
+    padding: 20px;
+    width: 90%;
+    max-width: 400px;
+    max-height: 85vh; /* Evita que se salga de la pantalla */
+    overflow-y: auto; /* Permite scroll interno si hay mucho texto */
+    border-radius: 15px;
+    position: relative;
+    box-sizing: border-box;
 }
 
-.modal-content h2 {
-  margin-bottom: 15px;
-  color: #ff4d6d;
-}
-
+/* Lista de motivos animada */
 .modal-content ol {
-  text-align: left;
-  padding-left: 20px;
+    text-align: left;
+    padding-left: 20px;
+    font-size: 14px;
 }
 
-.modal-content li {
-  margin: 10px 0;
-}
-
-.close-btn {
-  position: absolute;
-  top: 12px;
-  right: 15px;
-  cursor: pointer;
-  font-size: 18px;
-}
-
-@keyframes scaleIn {
-  from {
-    transform: scale(0.8);
-    opacity: 0;
-  }
-  to {
-    transform: scale(1);
-    opacity: 1;
-  }
-}
-
-.hidden {
-  display: none;
-}
-
-
-.card {
-  margin: auto;
-  margin-top: 50px;
-}
-
-
-
-
-
-
-/* Estilo para la firma */
-.firma {
-    margin-top: 20px;
-    font-style: italic;
-    font-weight: bold;
-    color: #ff4d6d;
-    opacity: 0; /* Empieza invisible */
-    transition: opacity 1s ease-in;
-}
-
-/* Ajuste para que los items de la lista no se vean de golpe */
 .modal-content ol li {
+    margin: 8px 0;
     opacity: 0;
     transform: translateX(-10px);
-    transition: opacity 0.5s ease, transform 0.5s ease;
+    transition: all 0.5s ease;
 }
 
-/* Clase que activaremos con JS */
 .modal-content ol li.show {
     opacity: 1;
     transform: translateX(0);
 }
 
-.firma.show {
-    opacity: 1;
-}
-
-
-#openTrunkBtn {
-    background: #4dabff; /* Un azul bonito para variar del rosa */
-    color: white;
-    border: none;
-    padding: 12px 22px;
-    border-radius: 25px;
-    font-size: 16px;
-    cursor: pointer;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-}
-
-/* Estilo de la foto tipo Polaroid */
+/* --- CARRUSEL POLAROID (CORREGIDO) --- */
 .carousel img {
-    width: 100%;
+    width: 100%;           /* Se adapta al ancho del contenedor */
+    height: auto;          /* Mantiene la proporción original */
+    max-height: 70vh;      /* Evita que sea más alta que la pantalla */
+    object-fit: contain;   /* MUESTRA LA FOTO COMPLETA sin cortarla */
+    background-color: #f0f0f0; /* Fondo sutil por si la foto es muy angosta */
+    border-bottom: 30px solid white; 
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     border-radius: 5px;
-    border-bottom: 35px solid white; /* Simula el borde de una Polaroid */
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-    transition: opacity 0.3s ease;
+    display: block;
+    margin: 0 auto;
 }
 
 .carousel-controls {
     display: flex;
     justify-content: space-between;
-    margin-top: 15px;
+    margin-top: 10px;
 }
 
-.carousel-controls button {
-    background: #ff4d6d !important;
-    color: white;
-    padding: 8px 15px !important;
-}
-
-
+/* --- PANTALLA DE BLOQUEO --- */
 #login-screen {
     position: fixed;
     top: 0;
@@ -298,35 +170,39 @@ button:first-child {
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 100000; /* Por encima de todo */
-    transition: opacity 0.8s ease;
+    z-index: 110000;
+    transition: opacity 0.8s;
 }
 
 .login-card {
     background: white;
-    padding: 30px;
+    padding: 25px;
     border-radius: 20px;
+    width: 85%;
+    max-width: 300px;
     text-align: center;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-    width: 300px;
 }
 
-#fechaClave {
-    padding: 10px;
-    border: 2px solid #ff4d6d;
-    border-radius: 10px;
-    margin-bottom: 15px;
-    font-family: Arial, sans-serif;
-}
-
-#error-msg {
-    color: #ff4d6d;
-    font-size: 14px;
-    margin-top: 10px;
-}
-
-/* Clase para ocultar el login con suavidad */
-.fade-out {
-    opacity: 0;
+/* --- CORAZONES FLOTANTES --- */
+.corazon {
+    position: fixed;
+    bottom: -30px;
+    font-size: 18px;
+    animation: flotar 6s ease-out forwards;
     pointer-events: none;
+    z-index: 999;
+}
+
+@keyframes flotar {
+    from { transform: translateY(0) rotate(0deg); opacity: 1; }
+    to { transform: translateY(-110vh) rotate(360deg); opacity: 0; }
+}
+
+.hidden { display: none; }
+.fade-out { opacity: 0; pointer-events: none; }
+
+/* --- AJUSTES EXTRA PARA PANTALLAS MUY PEQUEÑAS --- */
+@media (max-width: 350px) {
+    h1 { font-size: 1.2rem; }
+    button { padding: 8px 15px; font-size: 13px; }
 }
