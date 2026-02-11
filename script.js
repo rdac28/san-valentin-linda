@@ -41,3 +41,41 @@ function moveNo() {
     const y = Math.random() * 200 - 100;
     noBtn.style.transform = `translate(${x}px, ${y}px)`;
 }
+
+
+
+const fechaInicio = new Date("2022-11-04T00:00:00"); // CAMBIA ESTA FECHA
+const tiempoSpan = document.getElementById("tiempo");
+
+function actualizarContador() {
+  const ahora = new Date();
+  const diferencia = ahora - fechaInicio;
+
+  const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
+  const horas = Math.floor((diferencia / (1000 * 60 * 60)) % 24);
+  const minutos = Math.floor((diferencia / (1000 * 60)) % 60);
+
+  tiempoSpan.textContent = `${dias} días, ${horas} horas y ${minutos} minutos`;
+}
+
+actualizarContador();
+setInterval(actualizarContador, 60000);
+
+
+
+function crearCorazon() {
+  const corazon = document.createElement("div");
+  corazon.classList.add("corazon");
+  corazon.textContent = "💖";
+
+  corazon.style.left = Math.random() * 100 + "vw";
+  corazon.style.fontSize = Math.random() * 10 + 15 + "px";
+
+  document.body.appendChild(corazon);
+
+  setTimeout(() => {
+    corazon.remove();
+  }, 5000);
+}
+
+setInterval(crearCorazon, 800);
