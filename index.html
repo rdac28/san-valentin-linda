@@ -1,39 +1,101 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta charset="UTF-8">
-    <title>Para Linda 💖</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Para Linda 💖</title>
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<div class="card">
-    <h1>💌 Para el amor de mi vida</h1>
-    <h2>Linda Antonella</h2>
-
-    <p id="text"></p>
-
-    <div id="contador-amor">
-    💕 Llevamos juntos: <span id="tiempo"></span>
-    </div>
-
-    <div class="buttons">
-        <button onclick="yes()">Sí 💕</button>
-        <button id="no" onmouseover="moveNo()">No 😢</button>
-    </div>
+<div id="login-screen">
+  <div class="login-card">
+    <h3>🔒 Acceso exclusivo</h3>
+    <p>Para entrar, ingresa la fecha en la que nuestra historia comenzó:</p>
+    <input type="date" id="fechaClave">
+    <button onclick="verificarFecha()">Entrar ❤️</button>
+    <p id="error-msg" class="hidden">Esa no es la fecha... intenta de nuevo amor 🥺</p>
+  </div>
 </div>
 
-<script src="script.js"></script>
 
-<!-- Botón de música -->
+<div class="card">
+  <h1>💌 Invitacion formal para el amor de mi vida</h1>
+  <h2>Linda Antonella</h2>
+
+  <p id="text"></p>
+
+  <div id="contador-amor">
+    💕 Llevamos juntos: <span id="tiempo"></span>
+  </div>
+
+  <div class="buttons">
+    <button onclick="yes()">Sí 💕</button>
+    <button id="no" onmouseover="moveNo()">No 😢</button>
+  </div>
+</div>
+
+<div class="love-section">
+  <button id="whyLoveBtn">💖 ¿Por qué te amo?</button>
+  <br><br> <button id="openTrunkBtn">🎒 Nuestro Baúl de Recuerdos</button>
+</div>
+
+<div id="trunkModal" class="modal hidden">
+  <div class="modal-content">
+    <span id="closeTrunk" class="close-btn">✖</span>
+    <h2>Nuestros Momentos 📸</h2>
+    
+    <div class="carousel">
+      <img id="carouselImg" src="foto1.jpg" alt="Recuerdo">
+      <p id="photoCaption">Cargando momento especial...</p>
+      
+      <div class="carousel-controls">
+        <button onclick="changePhoto(-1)">❮ Ant.</button>
+        <button onclick="changePhoto(1)">Sig. ❯</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL -->
+<div id="loveModal" class="modal hidden">
+  <div class="modal-content">
+    <span id="closeModal" class="close-btn">✖</span>
+    <h2>¿Por qué te amo? 💖</h2>
+    <ol>
+      <li>Porque contigo todo se siente hogar</li>
+      <li>Porque contigo el tiempo vuela</li>
+        <li>Porque cuando te haces la enojona… te ves peligrosamente irresistible</li>
+        <li>Porque tu mirada dice “no me molestes”, pero tu sonrisa me traiciona</li>
+        <li>Porque cuando te ríes, automáticamente me enamoro otra vez</li>
+        <li>Porque tu carácter fuerte me reta y eso me encanta</li>
+        <li>Porque contigo nunca sé si me vas a abrazar o reclamar</li>
+        <li>Porque cuando te haces la inocente, conmigo eres totalmente tú</li>
+        <li>Porque tu forma de mirarme me desarma por completo</li>
+        <li>Porque sabes exactamente cómo volverme loco sin hacer nada</li>
+        <li>Porque contigo el “te amo” también se siente muy cerca</li>
+        <li>Porque me encantas incluso cuando dices “no quiero nada”</li>
+        <li>Porque eres mi lugar seguro… y mi tentación favorita</li>
+        <li>Porque tienes ese algo que no puedo explicar, pero sí sentir</li>
+        <li>Porque eres mi persona favorita para todo… TODO</li>
+        <li>Porque tu presencia cambia mis días</li>
+        <li>Porque tu forma de amar es única</li>
+        <li>Porque contigo siempre quiero quedarme un ratito más</li>
+        <li>Porque eres caos bonito y calma al mismo tiempo</li>
+        <li>Porque eres tú, con tu carácter, tu carita y tu forma de amar 💖🔥</li>
+      <li>Porque eres tú, MI VIDA ❤️</li>
+    </ol>
+  </div>
+</div>
+
+<!-- Música -->
 <button id="musicBtn">💖 Toca aquí</button>
 
 <audio id="bgMusic" preload="auto">
   <source src="musica.mp3" type="audio/mpeg">
 </audio>
 
-
-
+<script src="script.js"></script>
 </body>
 </html>
