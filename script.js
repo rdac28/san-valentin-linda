@@ -67,17 +67,34 @@ setInterval(actualizarContador, 60000);
 
 function crearCorazon() {
   const corazon = document.createElement("div");
-  corazon.classList.add("corazon");
-  corazon.textContent = "💖";
+  corazon.className = "corazon";
+  corazon.innerText = "💖";
 
   corazon.style.left = Math.random() * 100 + "vw";
-  corazon.style.fontSize = Math.random() * 10 + 15 + "px";
+  corazon.style.fontSize = Math.random() * 8 + 14 + "px";
 
   document.body.appendChild(corazon);
 
   setTimeout(() => {
     corazon.remove();
-  }, 5000);
+  }, 6000);
 }
 
-setInterval(crearCorazon, 800);
+setInterval(crearCorazon, 1500);
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const musicBtn = document.getElementById("musicBtn");
+  const bgMusic = document.getElementById("bgMusic");
+
+  musicBtn.addEventListener("click", () => {
+    if (bgMusic.paused) {
+      bgMusic.play();
+      musicBtn.textContent = "⏸️ Pausar música";
+    } else {
+      bgMusic.pause();
+      musicBtn.textContent = "🎵 Reproducir música";
+    }
+  });
+});
