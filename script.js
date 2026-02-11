@@ -44,22 +44,24 @@ function moveNo() {
 
 
 
-const fechaInicio = new Date("2022-11-04T00:00:00"); // CAMBIA ESTA FECHA
+const fechaInicio = new Date(2022, 11, 04); // AÑO, MES-1, DÍA
 const tiempoSpan = document.getElementById("tiempo");
 
 function actualizarContador() {
   const ahora = new Date();
-  const diferencia = ahora - fechaInicio;
+
+  let diferencia = ahora.getTime() - fechaInicio.getTime();
 
   const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
   const horas = Math.floor((diferencia / (1000 * 60 * 60)) % 24);
   const minutos = Math.floor((diferencia / (1000 * 60)) % 60);
 
-  tiempoSpan.textContent = `${dias} días, ${horas} horas y ${minutos} minutos`;
+  tiempoSpan.innerText = `${dias} días, ${horas} horas y ${minutos} minutos`;
 }
 
 actualizarContador();
 setInterval(actualizarContador, 60000);
+
 
 
 

@@ -65,19 +65,32 @@ button:first-child {
 
 .corazon {
   position: fixed;
-  bottom: 0;
-  font-size: 20px;
-  animation: flotar 5s linear forwards;
-  opacity: 0.8;
+  bottom: -30px;
+  font-size: 18px;
+  animation: flotar 6s ease-out forwards;
+  pointer-events: none;
 }
 
 @keyframes flotar {
   from {
-    transform: translateY(0);
+    transform: translateY(0) translateX(0);
     opacity: 1;
   }
   to {
-    transform: translateY(-100vh);
+    transform: translateY(-110vh) translateX(20px);
     opacity: 0;
   }
 }
+
+
+
+@media (max-width: 600px) {
+  body {
+    padding: 15px;
+  }
+
+  #contador-amor {
+    font-size: 1rem;
+  }
+}
+
