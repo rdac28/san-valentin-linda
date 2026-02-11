@@ -210,3 +210,5 @@ function verificarFecha() {
         if (navigator.vibrate) navigator.vibrate(200);
     }
 }
+
+
